@@ -1,6 +1,7 @@
 from playsound import *
 from datetime import *
 
+
 def validate_time(alarm_time):
     if len(alarm_time) != 8:
         return 'Неверный формат, попробуйте еще раз.'
@@ -14,10 +15,11 @@ def validate_time(alarm_time):
         else:
             return 'Отлично!'
 
+
 while True:
     alarm_time = input('Введите время в следующем формате \'HH:MM:SS\' \nВремя будильника: ')
     validate = validate_time(alarm_time)
-    if validate != 'Отлично':
+    if validate != 'Отлично!':
         print(validate)
     else:
         print(f"Будильник установлен на время {alarm_time}...")
@@ -39,5 +41,5 @@ while True:
         if alarm_min == current_min:
             if alarm_sec == current_sec:
                 print('Вставай Нео! Нас ждут великие дела!')
-                playsound('/home/l-i-s/Music/Matrix.mp3')
+                playsound('/home/l-i-s/Music/matrix.mp3')
                 break
