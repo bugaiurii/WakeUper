@@ -15,4 +15,29 @@ def validate_time(alarm_time):
             return 'Отлично!'
 
 while True:
-    alarm_time = input('Введите время в следующем формате \'HH:MM:SS\' \nВремя будильника')
+    alarm_time = input('Введите время в следующем формате \'HH:MM:SS\' \nВремя будильника: ')
+    validate = validate_time(alarm_time)
+    if validate != 'Отлично':
+        print(validate)
+    else:
+        print(f"Будильник установлен на время {alarm_time}...")
+        break
+
+
+alarm_hour = int(alarm_time[0:2])
+alarm_min = int(alarm_time[3:5])
+alarm_sec = int(alarm_time[6:8])
+
+while True:
+    now = datetime.now()
+
+    current_hour = now.hour
+    current_min = now.minute
+    current_sec = now.second
+
+    if alarm_hour == current_hour:
+        if alarm_min == current_min:
+            if alarm_sec == current_sec:
+                print('Вставай Нео! Нас ждут великие дела!')
+                playsound('/home/l-i-s/Music/Matrix.mp3')
+                break
